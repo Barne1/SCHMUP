@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update() {
-        if (firing) {
+        if (firing && currentWeapon != null) {
             currentWeapon.Fire();
         }
     }

@@ -31,6 +31,8 @@ public class WeaponsManager : MonoBehaviour {
     public void AddWeapon(Weapon newWeapon) {
         if (!weapons.Contains(newWeapon)) {
             weapons.Add(newWeapon);
+            newWeapon.SetUp();
+            newWeapon.transform.parent = this.transform;
         }
     }
 }

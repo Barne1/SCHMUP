@@ -13,6 +13,7 @@ public abstract class Weapon : MonoBehaviour {
     }
 
     protected abstract void Shoot();
+    public abstract void SetUp();
 
     protected virtual IEnumerator ShotCoolDown() {
         currentlyShooting = true;

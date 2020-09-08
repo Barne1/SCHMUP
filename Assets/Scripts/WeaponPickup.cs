@@ -7,8 +7,8 @@ public class WeaponPickup : MonoBehaviour {
     [SerializeField] private Weapon weapon;
 
     private void OnCollisionEnter2D (Collision2D other) {
-            WeaponsManager.instance.AddWeapon(weapon);
+        WeaponsManager.instance.AddWeapon(weapon);
         
-        Destroy(this.gameObject, 1f);
+        Destroy(this.gameObject);
     }
 }
