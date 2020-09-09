@@ -12,11 +12,14 @@ public class PlayerController : MonoBehaviour
 
     //serialized values
     [SerializeField, Range(0, 1000)] float movementSpeed = 10f;
+    [SerializeField, Range(1, 100)] int hp;
 
     //references
     Rigidbody2D body;
-    Weapon currentWeapon;
+    public Weapon currentWeapon;
     [SerializeField] private WeaponsManager weaponsManager;
+    [SerializeField] Shield shield;
+    [SerializeField] DamageFlash damageFlash;
 
     //private fields
     Vector2 movementInput = Vector2.zero;
@@ -24,6 +27,22 @@ public class PlayerController : MonoBehaviour
     private bool firing = false;
 
     #endregion Fields
+
+    //Public non-input methods
+    public void TakeDamage(int damage)
+    {
+        if (!shield.active && hp > 0)
+        {
+            damageFlash.FlashScreen();
+            //todo effects
+            hp -= damage;
+            if (hp < 1)
+            {
+                //todo effect
+                GameHandler.instance.StartGameOver();
+            }
+        }
+    }
 
     //Methods native to Unity
     #region UnityMethods
@@ -72,6 +91,11 @@ public class PlayerController : MonoBehaviour
 
     public void GetShootInput(InputAction.CallbackContext ctx) {
         firing = ctx.ReadValueAsButton();
+    }
+
+    public void GetShieldInput(InputAction.CallbackContext ctx)
+    {
+        shield.ActivateShield();
     }
 
     #endregion Input

@@ -6,7 +6,10 @@ namespace Environment {
         [SerializeField] 
         private Material backgroundMat;
         [SerializeField, Range(0f,5f)] 
-        private float scrollSpeed = 1f;
+        private float desiredScrollSpeed = 1f;
+        private float scrollSpeed = 0.001f;
+        [SerializeField, Range(0f, 5f)]
+        private float scrollAcceleration = 0.1f;
 
         private float _offset = 0f;
         
@@ -17,6 +20,11 @@ namespace Environment {
         }
 
         void Update() {
+            if(scrollSpeed < desiredScrollSpeed && GameHandler.instance.levelStarted)
+            {
+                scrollAcceleration += scrollAcceleration * Time.deltaTime;
+                scrollSpeed = Mathf.Min(scrollAcceleration, desiredScrollSpeed);
+            }
             _offset += scrollSpeed * Time.deltaTime;
             //prevent overflow
             if (_offset > 1000) {

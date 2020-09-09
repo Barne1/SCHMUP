@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class WeaponsManager : MonoBehaviour {
     public static WeaponsManager instance;
-    
+
+    [SerializeField] PlayerController player;
     [SerializeField] List<Weapon> weapons;
     public Transform shootPoint;
     public ObjectPool bulletPool;
@@ -33,6 +34,9 @@ public class WeaponsManager : MonoBehaviour {
             weapons.Add(newWeapon);
             newWeapon.SetUp();
             newWeapon.transform.parent = this.transform;
+
+            counter = weapons.Count - 1;
+            player.currentWeapon = weapons[counter];
         }
     }
 }

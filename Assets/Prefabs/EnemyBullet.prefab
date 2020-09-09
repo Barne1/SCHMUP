@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 4673458098916089240}
   - component: {fileID: 2848384409502078297}
   - component: {fileID: 2277363783918012136}
-  m_Layer: 9
-  m_Name: PlayerBullet
+  m_Layer: 10
+  m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300026, guid: 8aeb9e233fbb8f14db39770841b78b94, type: 3}
+  m_Sprite: {fileID: 21300014, guid: 8aeb9e233fbb8f14db39770841b78b94, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,4 +134,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a264c5a2275e6d848b2294b77004095e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layer: 9
+  layer: 10

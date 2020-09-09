@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour {
     }
     
     [SerializeField] private BulletLayer layer;
-    private int damage;
+    private int damage = 1;
 
     private Rigidbody2D body;
 
@@ -27,8 +27,16 @@ public class Bullet : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        //todo damage
-        Debug.Log("lmao");
+        
+        if(layer == BulletLayer.Enemybullet)
+        {
+            PlayerController player = other.gameObject.GetComponent<PlayerController>();
+            if(player != null)
+            {
+                player.TakeDamage(damage);
+            }
+        }
+
         this.gameObject.SetActive(false);
     }
 }
