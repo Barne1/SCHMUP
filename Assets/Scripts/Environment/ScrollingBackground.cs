@@ -20,7 +20,7 @@ namespace Environment {
         }
 
         void Update() {
-            if(scrollSpeed < desiredScrollSpeed && GameHandler.instance.levelStarted)
+            if(scrollSpeed < desiredScrollSpeed && GameHandler.instance.LevelStarted)
             {
                 scrollAcceleration += scrollAcceleration * Time.deltaTime;
                 scrollSpeed = Mathf.Min(scrollAcceleration, desiredScrollSpeed);

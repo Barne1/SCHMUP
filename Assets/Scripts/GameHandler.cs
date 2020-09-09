@@ -16,7 +16,7 @@ public class GameHandler : MonoBehaviour
     }
 
     #region levelManagement
-    public bool levelStarted { get; set; } = true;
+    public bool LevelStarted { get; set; } = true;
     bool gameOverStarted = false;
     [System.NonSerialized]public bool gameOverDone = false;
 
