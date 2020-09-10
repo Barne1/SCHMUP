@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 112033210}
-  - component: {fileID: 112033211}
+  - component: {fileID: 8803596106778809213}
   m_Layer: 13
-  m_Name: Standard Weapon
+  m_Name: TriShot Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 6573243876836968152}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &112033211
+--- !u!114 &8803596106778809213
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,13 +40,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 112033209}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dd21889514593a42b7b354ad66e9ca2, type: 3}
+  m_Script: {fileID: 11500000, guid: 6031548807a5fde4ea7af561c7a7a0ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenShots: 0.1
-  name: StandardWeapon
-  bulletSpeed: 300
-  damage: 10
+  name: TriShot
+  bulletSpeed: 500
+  damage: 1
   enemyWeapon: 0
 --- !u!1 &6510725682165811353
 GameObject:
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 1820715621980535040}
   - component: {fileID: 479757253}
   m_Layer: 13
-  m_Name: StandardWeaponPickUp
+  m_Name: TriShotPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,7 +123,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.119199276, g: 1, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.11101651, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c981816420eb579489330a7c12a6aa64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 112033211}
+  weapon: {fileID: 8803596106778809213}
 --- !u!58 &479757253
 CircleCollider2D:
   m_ObjectHideFlags: 0

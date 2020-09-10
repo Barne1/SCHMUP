@@ -1,4 +1,7 @@
 ﻿//Hugo Lindroth 2020
+
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,11 +23,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private WeaponsManager weaponsManager;
     [SerializeField] Shield shield;
     [SerializeField] DamageFlash damageFlash;
+    [SerializeField] private float swapCoolDownTimer = 0.5f;
 
     //private fields
     Vector2 movementInput = Vector2.zero;
     Vector2 mouseInput = Vector2.zero;
     private bool firing = false;
+    private bool swapping = false;
+    private int swapNextOrPrevious = 0;
 
     #endregion Fields
 
@@ -34,11 +40,9 @@ public class PlayerController : MonoBehaviour
         if (!shield.active && hp > 0)
         {
             damageFlash.FlashScreen();
-            //todo effects
             hp -= damage;
             if (hp < 1)
             {
-                //todo effect
                 GameHandler.instance.StartGameOver();
             }
         }
@@ -53,12 +57,16 @@ public class PlayerController : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         weaponsManager = GetComponentInChildren<WeaponsManager>();
         weaponsManager.shootPoint = this.transform;
-        currentWeapon = weaponsManager.GetNextWeapon();
+        currentWeapon = weaponsManager.SwapWeapon(swapNextOrPrevious);
     }
 
     private void Update() {
         if (firing && currentWeapon != null) {
             currentWeapon.Fire();
+        }
+
+        if (swapping) {
+            
         }
     }
 
@@ -96,6 +104,21 @@ public class PlayerController : MonoBehaviour
     public void GetShieldInput(InputAction.CallbackContext ctx)
     {
         shield.ActivateShield();
+    }
+
+    public void GetWeaponSwapInput(InputAction.CallbackContext ctx) {
+        swapNextOrPrevious = (int)ctx.ReadValue<Vector2>().y;
+        if (swapNextOrPrevious != 0 && !swapping) {
+            swapping = true;
+            currentWeapon = weaponsManager.SwapWeapon(swapNextOrPrevious);
+            StartCoroutine(SwapCoolDown());
+        }
+    }
+    
+    //timer mehods
+    IEnumerator SwapCoolDown() {
+        yield return new WaitForSeconds(swapCoolDownTimer);
+        swapping = false;
     }
 
     #endregion Input

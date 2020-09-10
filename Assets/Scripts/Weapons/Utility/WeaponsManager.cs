@@ -6,22 +6,48 @@ public class WeaponsManager : MonoBehaviour {
 
     [SerializeField] PlayerController player;
     [SerializeField] List<Weapon> weapons;
+    [SerializeField] private WeaponNameDisplay weaponText;
+    
     public Transform shootPoint;
     public ObjectPool bulletPool;
+    
     private int counter = 0;
+    private IShootingPattern[] shootingPatterns;
+    public enum ShootingPattern {
+        SINGLESHOT,
+        TRISHOT,
+        MAX,
+    }
     
     private void Awake() {
         instance = this;
+        shootingPatterns = new IShootingPattern[(int)ShootingPattern.MAX];
+        SetUpShootingPatterns();
     }
 
-    public Weapon GetNextWeapon() {
-        if (weapons.Count > 0) {
-            Weapon nextWeapon = weapons[counter % weapons.Count];
-            counter++;
-            if (counter > weapons.Count) {
-                counter = 0;
-            }
+    public void SetUpShootingPatterns() {
+        shootingPatterns[(int)ShootingPattern.SINGLESHOT] = new SingleShot();
+        shootingPatterns[(int)ShootingPattern.TRISHOT] = new TriShot();
+        foreach (var pattern in shootingPatterns) {
+            pattern.Init(bulletPool, shootPoint);
+        }
+    }
 
+    public IShootingPattern GetShootingPattern(ShootingPattern pattern) {
+        return shootingPatterns[(int)pattern];
+    }
+
+    public Weapon SwapWeapon(int nextOrPrevious) {
+        if (weapons.Count > 0) {
+            counter += nextOrPrevious;
+            if (counter >= weapons.Count) {
+                counter -= weapons.Count;
+            }
+            else if (counter < 0) {
+                counter += weapons.Count;
+            }
+            Weapon nextWeapon = weapons[counter % weapons.Count];
+            weaponText.SetText(nextWeapon.name);
             return nextWeapon;
         }
         else {
@@ -32,11 +58,12 @@ public class WeaponsManager : MonoBehaviour {
     public void AddWeapon(Weapon newWeapon) {
         if (!weapons.Contains(newWeapon)) {
             weapons.Add(newWeapon);
-            newWeapon.SetUp();
             newWeapon.transform.parent = this.transform;
 
             counter = weapons.Count - 1;
-            player.currentWeapon = weapons[counter];
+            Weapon nextWeapon = weapons[counter];
+            player.currentWeapon = nextWeapon;
+            weaponText.SetText(nextWeapon.name);
         }
     }
 }

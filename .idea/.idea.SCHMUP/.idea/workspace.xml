@@ -19,7 +19,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bb9a7bc-b18d-4ab3-bb55-43820475892a" name="Default Changelist" comment="" />
+    <list default="true" id="3bb9a7bc-b18d-4ab3-bb55-43820475892a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SCHMUP/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SCHMUP/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SCHMUP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SCHMUP/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayerInput.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerInput.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StandardWeaponPickUp.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/StandardWeaponPickUp.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/StandardWeapon.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/StandardWeapon.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Utility/WeaponsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Utility/WeaponsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,9 +43,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/WeaponPickup.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/StandardWeapon.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/WeaponsManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/WeaponNameDisplay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/ShootingPatterns/TriShot.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -48,6 +61,16 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/StandardWeapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/WeaponsManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/IShootingPattern.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/SingleShot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/StandardWeapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponTypes/StandardWeapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponTypes/TriShotWeapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/ShootingPatterns/TriShot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/WeaponNameDisplay.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Utility/WeaponsManager.cs" />
       </list>
     </option>
   </component>
@@ -93,6 +116,7 @@
       <workItem from="1599563491427" duration="34000" />
       <workItem from="1599563571352" duration="12631000" />
       <workItem from="1599578978004" duration="1640000" />
+      <workItem from="1599724419573" duration="10369000" />
     </task>
     <servers />
   </component>
@@ -117,9 +141,21 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="737" y="205" key="RiderGenerateDialog" timestamp="1599729465809">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="737" y="205" key="RiderGenerateDialog/1920.2.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599729465809" />
+    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1599735721330">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/1920.2.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599735721330" />
     <state x="718" y="188" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1599580208780">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="718" y="188" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1920.2.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599580208780" />
+    <state x="1920" y="2" width="1893" height="1028" key="dock-window-1" timestamp="1599724844751">
+      <screen x="1920" y="2" width="1920" height="1040" />
+    </state>
+    <state x="1920" y="2" width="1893" height="1028" key="dock-window-1/1920.2.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599724844751" />
   </component>
 </project>

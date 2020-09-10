@@ -5,6 +5,7 @@ public abstract class Weapon : MonoBehaviour {
     [SerializeField, Range(0f, 5f)] private float timeBetweenShots = 1f;
     private bool currentlyShooting = false;
     [SerializeField] public string name = "NO NAME";
+    protected IShootingPattern shootingPattern;
 
     public void Fire() {
         if (!currentlyShooting) {
@@ -14,7 +15,6 @@ public abstract class Weapon : MonoBehaviour {
     }
 
     protected abstract void Shoot();
-    public abstract void SetUp();
 
     protected virtual IEnumerator ShotCoolDown() {
         currentlyShooting = true;
