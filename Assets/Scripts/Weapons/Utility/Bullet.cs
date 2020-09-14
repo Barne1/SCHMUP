@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour {
     }
     
     [SerializeField] private BulletLayer layer;
-    private int damage = 1;
+    [SerializeField]private int damage = 1;
 
     private Rigidbody2D body;
 

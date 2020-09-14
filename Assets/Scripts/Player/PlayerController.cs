@@ -1,9 +1,9 @@
 ﻿//Hugo Lindroth 2020
 
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -11,6 +11,21 @@ public class PlayerController : MonoBehaviour
     #region Fields
 
     //public values
+    public int HP
+    {
+        get
+        {
+            return hp;
+        }
+    }
+
+    //events
+    public UnityEvent OnDeath;
+    public DamageEvent OnDamage;
+
+    public class DamageEvent : UnityEvent<int>
+    {
+    }
 
 
     //serialized values
@@ -22,7 +37,6 @@ public class PlayerController : MonoBehaviour
     public Weapon currentWeapon;
     [SerializeField] private WeaponsManager weaponsManager;
     [SerializeField] Shield shield;
-    [SerializeField] DamageFlash damageFlash;
     [SerializeField] private float swapCoolDownTimer = 0.5f;
 
     //private fields
@@ -39,11 +53,11 @@ public class PlayerController : MonoBehaviour
     {
         if (!shield.active && hp > 0)
         {
-            damageFlash.FlashScreen();
+            OnDamage.Invoke(damage);
             hp -= damage;
             if (hp < 1)
             {
-                GameHandler.instance.StartGameOver();
+                OnDeath.Invoke();
             }
         }
     }
@@ -58,6 +72,7 @@ public class PlayerController : MonoBehaviour
         weaponsManager = GetComponentInChildren<WeaponsManager>();
         weaponsManager.shootPoint = this.transform;
         currentWeapon = weaponsManager.SwapWeapon(swapNextOrPrevious);
+        OnDamage = new DamageEvent();
     }
 
     private void Update() {

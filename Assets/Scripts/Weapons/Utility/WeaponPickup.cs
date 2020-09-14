@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.Events;
 
 public class WeaponPickup : MonoBehaviour {
     [SerializeField] private Weapon weapon;

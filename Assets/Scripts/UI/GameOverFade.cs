@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class DamageFlash : MonoBehaviour
+public class GameOverFade : MonoBehaviour
 {
-    bool doneFlashing = true;
+    bool doneFading = true;
     Image image;
     float opacity = 0f;
     [SerializeField, Range(0f, 1f)]
-    float flashSpeed;
-    [SerializeField, Range(0f, 1f)]
-    float initialFlashIntensity = 0.7f;
+    float fadeSpeed;
+
+    public UnityEvent FadeDone;
 
     float r;
     float g;
@@ -26,21 +27,22 @@ public class DamageFlash : MonoBehaviour
 
     void Update()
     {
-        if(!doneFlashing)
+        if (!doneFading)
         {
-            opacity -= flashSpeed * Time.deltaTime;
-            if(opacity < 0)
+            opacity += fadeSpeed * Time.deltaTime;
+            if (opacity > 1)
             {
-                opacity = 0;
-                doneFlashing = true;
+                opacity = 1;
+                FadeDone.Invoke();
+                doneFading = true;
             }
             image.color = new Color(r, g, b, opacity);
         }
     }
 
-    public void FlashScreen()
+    public void FadeScreen()
     {
-        doneFlashing = false;
-        opacity = initialFlashIntensity;
+        doneFading = false;
+        opacity = 0f;
     }
 }

@@ -7,6 +7,7 @@ public class GameHandler : MonoBehaviour
 {
     [SerializeField] public static GameHandler instance;
     [SerializeField] PlayerInput playerControls;
+    [SerializeField] PlayerController player;
     [SerializeField] GameOverFade gameOverFade;
 
     private void Awake()
@@ -15,10 +16,15 @@ public class GameHandler : MonoBehaviour
         activeSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
+    private void Start()
+    {
+        player?.OnDeath.AddListener(StartGameOver);
+        gameOverFade?.FadeDone.AddListener(GoToGameOver);
+    }
+
     #region levelManagement
     public bool LevelStarted { get; set; } = true;
     bool gameOverStarted = false;
-    [System.NonSerialized]public bool gameOverDone = false;
 
     public void StartGameOver()
     {
@@ -31,15 +37,9 @@ public class GameHandler : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
-            StartCoroutine(GameOverTimer());
+            gameOverFade.FadeScreen();
+            //Waits for gameOverFade.FadeDone before proceeding with GoToGameOver
         }
-    }
-
-    IEnumerator GameOverTimer()
-    {
-        gameOverFade.FadeScreen();
-        yield return new WaitUntil(() => gameOverDone);
-        GoToGameOver();
     }
 
     #endregion levelManagement
