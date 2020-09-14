@@ -28,9 +28,6 @@ public class WeaponsManager : MonoBehaviour {
     public void SetUpShootingPatterns() {
         shootingPatterns[(int)ShootingPattern.SINGLESHOT] = new SingleShot();
         shootingPatterns[(int)ShootingPattern.TRISHOT] = new TriShot();
-        foreach (var pattern in shootingPatterns) {
-            pattern.Init(bulletPool, shootPoint);
-        }
     }
 
     public IShootingPattern GetShootingPattern(ShootingPattern pattern) {
@@ -59,6 +56,7 @@ public class WeaponsManager : MonoBehaviour {
         if (!weapons.Contains(newWeapon)) {
             weapons.Add(newWeapon);
             newWeapon.transform.parent = this.transform;
+            newWeapon.transform.localPosition = Vector3.zero;
 
             counter = weapons.Count - 1;
             Weapon nextWeapon = weapons[counter];

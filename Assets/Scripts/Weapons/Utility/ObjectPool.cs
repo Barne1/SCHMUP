@@ -8,13 +8,20 @@ public class ObjectPool : MonoBehaviour {
     private int counter = 0;
     private GameObject[] pool;
 
-    private void Awake() {
+    public static ObjectPool instance;
+    
+    [SerializeField] public Sprite playerBulletSprite;
+    [SerializeField] public Sprite enemyBulletSprite;
+
+    protected virtual void Awake() {
         pool = new GameObject[poolSize];
         for (int i = 0; i < poolSize; i++) {
             GameObject bullet = Instantiate(prefab);
             pool[i] = bullet;
             bullet.SetActive(false);
         }
+
+        instance = this;
     }
 
     public GameObject GetNextObject() {

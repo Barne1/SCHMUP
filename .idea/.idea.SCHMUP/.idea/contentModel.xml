@@ -6,18 +6,26 @@
     <e p="C:\Users\Hugo.Lindroth\GameProjects\SCHMUP" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="EnemyAnimationEvent.cs" t="Include" />
         <e p="Scripts" t="Include">
+          <e p="Enemy" t="Include">
+            <e p="BigEnemy.cs" t="Include" />
+            <e p="Enemy.cs" t="Include" />
+          </e>
           <e p="Environment" t="Include">
             <e p="ScrollingBackground.cs" t="Include" />
           </e>
           <e p="GameHandler.cs" t="Include" />
-          <e p="GameOverFade.cs" t="Include" />
           <e p="Player" t="Include">
-            <e p="DamageFlash.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
             <e p="Shield.cs" t="Include" />
           </e>
-          <e p="WeaponNameDisplay.cs" t="Include" />
+          <e p="UI" t="Include">
+            <e p="DamageFlash.cs" t="Include" />
+            <e p="GameOverFade.cs" t="Include" />
+            <e p="HealthDisplay.cs" t="Include" />
+            <e p="WeaponNameDisplay.cs" t="Include" />
+          </e>
           <e p="Weapons" t="Include">
             <e p="ShootingPatterns" t="Include">
               <e p="IShootingPattern.cs" t="Include" />

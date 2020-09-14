@@ -13,15 +13,23 @@ public class Bullet : MonoBehaviour {
     [SerializeField]private int damage = 1;
 
     private Rigidbody2D body;
+    private SpriteRenderer spriteRenderer;
 
     private void Awake() {
         body = GetComponent<Rigidbody2D>();
-        this.gameObject.layer = (int)layer;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void Fire(Vector2 position, Vector2 direction, float speed, int newDamage) {
-        body.velocity = Vector2.zero;
+    public void Fire(Vector2 position, Vector2 direction, float speed, int newDamage, bool playerBullet) {
+        spriteRenderer.sprite =
+            playerBullet ? ObjectPool.instance.playerBulletSprite : ObjectPool.instance.enemyBulletSprite;
+        
+        layer = playerBullet ? BulletLayer.Playerbullet : BulletLayer.Enemybullet;
+        gameObject.layer = (int)layer;
+        
         damage = newDamage;
+        
+        body.velocity = Vector2.zero;
         transform.position = position;
         body.AddForce(direction * speed);
     }
@@ -35,6 +43,10 @@ public class Bullet : MonoBehaviour {
             {
                 player.TakeDamage(damage);
             }
+        }
+        else {
+            Enemy enemy = other.gameObject.GetComponent<Enemy>();
+            enemy?.TakeDamage(damage);
         }
 
         this.gameObject.SetActive(false);
