@@ -45,9 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenShots: 0.1
   name: TriShot
+  playerWeapon: 1
   bulletSpeed: 500
   damage: 1
-  enemyWeapon: 0
 --- !u!1 &6510725682165811353
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 8803596106778809213}
+  fallingSpeed: 1
 --- !u!58 &479757253
 CircleCollider2D:
   m_ObjectHideFlags: 0

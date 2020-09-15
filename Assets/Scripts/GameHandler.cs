@@ -7,7 +7,7 @@ public class GameHandler : MonoBehaviour
 {
     [SerializeField] public static GameHandler instance;
     [SerializeField] PlayerInput playerControls;
-    [SerializeField] PlayerController player;
+    [SerializeField] public PlayerController player;
     [SerializeField] GameOverFade gameOverFade;
 
     private void Awake()

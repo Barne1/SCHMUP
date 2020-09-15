@@ -14,6 +14,7 @@ public abstract class Weapon : MonoBehaviour {
 
     private void Awake() {
         direction = playerWeapon ? Vector2.up : Vector2.down;
+        timeBetweenShots = playerWeapon ? timeBetweenShots : 0;
     }
 
     public void Fire() {

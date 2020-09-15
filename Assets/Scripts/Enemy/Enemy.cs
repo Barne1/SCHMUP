@@ -11,7 +11,12 @@ public abstract class Enemy : MonoBehaviour {
     private const string animatorDeathTrigger = "Death";
     private const int playerLayer = 11;
 
-    public static UnityEvent OnDeath;
+    public int spawnPointOccuption { get; set; } = -1;
+
+    public class EnemyDeathEvent : UnityEvent<Enemy> { }
+    public static EnemyDeathEvent OnDeath = new EnemyDeathEvent();
+
+    public int enemyScoreValue = 1;
 
     protected bool alive = true;
 
@@ -30,7 +35,8 @@ public abstract class Enemy : MonoBehaviour {
     [SerializeField, Range(0f, 1f)] protected float timeBetweenShots;
     protected Weapon weapon;
     
-    private void Awake() {
+    protected virtual void Awake() {
+
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponentInChildren<Animator>();
         weapon = GetComponentInChildren<Weapon>();
@@ -66,7 +72,7 @@ public abstract class Enemy : MonoBehaviour {
             hp -= damage;
             if (hp < 1) {
                 alive = false;
-                OnDeath?.Invoke();
+                OnDeath.Invoke(this);
                 animator.SetTrigger(animatorDeathTrigger);
             }
             else {

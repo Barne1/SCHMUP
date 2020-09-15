@@ -5,6 +5,19 @@ using UnityEngine;
 public class BigEnemy : Enemy {
     [SerializeField, Range(0f, 1f)] float timeBetweenEachSalvo;
     [SerializeField, Range(1, 30)] int salvoesInAttack;
+
+    [SerializeField, Range(0f, 10)] float amountToGoDown = 2f;
+
+    [SerializeField, Range(0f, 10)] float timeToReachPositionFromSpawn;
+    Vector3 velocity = Vector3.zero;
+    Vector3 desiredPosition;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        desiredPosition = transform.position - new Vector3(0, amountToGoDown, 0);
+    }
+
     protected override void Attack() {
         if (!shooting) {
             StartCoroutine(FireSalvo());
@@ -22,6 +35,10 @@ public class BigEnemy : Enemy {
     }
 
     protected override void Movement() {
-        //todo
+        Vector3 currentPosition = transform.position;
+        if((currentPosition-desiredPosition).sqrMagnitude > 0.01)
+        {
+            transform.position = Vector3.SmoothDamp(currentPosition, desiredPosition, ref velocity, timeToReachPositionFromSpawn);
+        }
     }
 }

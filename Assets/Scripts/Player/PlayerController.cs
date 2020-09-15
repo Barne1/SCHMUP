@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     //serialized values
     [SerializeField, Range(0, 1000)] float movementSpeed = 10f;
     [SerializeField, Range(1, 100)] int hp;
+    [SerializeField, Range(0f, 1f)] float invincibilityTimeOnDamage;
 
     //references
     Rigidbody2D body;
@@ -45,21 +46,30 @@ public class PlayerController : MonoBehaviour
     private bool firing = false;
     private bool swapping = false;
     private int swapNextOrPrevious = 0;
+    private bool tempInvincibility = false;
 
     #endregion Fields
 
     //Public non-input methods
     public void TakeDamage(int damage)
     {
-        if (!shield.active && hp > 0)
+        if (!shield.active && hp > 0 && !tempInvincibility)
         {
             OnDamage.Invoke(damage);
             hp -= damage;
+            StartCoroutine(InvincibilityPeriod());
             if (hp < 1)
             {
                 OnDeath.Invoke();
             }
         }
+    }
+
+    IEnumerator InvincibilityPeriod()
+    {
+        tempInvincibility = true;
+        yield return new WaitForSeconds(invincibilityTimeOnDamage);
+        tempInvincibility = false;
     }
 
     //Methods native to Unity
@@ -68,6 +78,7 @@ public class PlayerController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
         body = GetComponent<Rigidbody2D>();
         weaponsManager = GetComponentInChildren<WeaponsManager>();
         weaponsManager.shootPoint = this.transform;
@@ -78,10 +89,6 @@ public class PlayerController : MonoBehaviour
     private void Update() {
         if (firing && currentWeapon != null) {
             currentWeapon.Fire();
-        }
-
-        if (swapping) {
-            
         }
     }
 

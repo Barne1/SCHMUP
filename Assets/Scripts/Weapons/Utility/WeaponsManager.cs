@@ -16,6 +16,7 @@ public class WeaponsManager : MonoBehaviour {
     public enum ShootingPattern {
         SINGLESHOT,
         TRISHOT,
+        FIVESHOT,
         MAX,
     }
     
@@ -28,6 +29,7 @@ public class WeaponsManager : MonoBehaviour {
     public void SetUpShootingPatterns() {
         shootingPatterns[(int)ShootingPattern.SINGLESHOT] = new SingleShot();
         shootingPatterns[(int)ShootingPattern.TRISHOT] = new TriShot();
+        shootingPatterns[(int)ShootingPattern.FIVESHOT] = new FiveShot();
     }
 
     public IShootingPattern GetShootingPattern(ShootingPattern pattern) {
