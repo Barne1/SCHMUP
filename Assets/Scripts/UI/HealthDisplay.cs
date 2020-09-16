@@ -18,7 +18,8 @@ public class HealthDisplay : MonoBehaviour
     private void Start()
     {
         maxHP = player.HP;
-        player.OnDamage.AddListener(RemoveHeart);
+        player.OnDamage.AddListener(TakeDamage);
+        player.OnHealthPickup.AddListener(Heal);
         useNumbers = maxHP > maxHeartsOnScreen;
 
         if (useNumbers)
@@ -39,7 +40,7 @@ public class HealthDisplay : MonoBehaviour
         }
     }
 
-    public void RemoveHeart(int damage)
+    public void TakeDamage(int damage)
     {
         if (useNumbers)
         {
@@ -57,6 +58,24 @@ public class HealthDisplay : MonoBehaviour
                     return;
                 }
                 hearts[counter--].SetActive(false);
+            }
+        }
+    }
+
+    public void Heal(int healing) {
+        if (useNumbers)
+        {
+            counter += healing;
+            lifeText.text = counter.ToString();
+        }
+        else
+        {
+            Debug.Log(healing);
+            int originalCounter = counter;
+            while (counter < originalCounter + healing)
+            {
+                Debug.Log(counter + "" + originalCounter + healing);
+                hearts[++counter].SetActive(true);
             }
         }
     }

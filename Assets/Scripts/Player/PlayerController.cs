@@ -21,9 +21,10 @@ public class PlayerController : MonoBehaviour
 
     //events
     public UnityEvent OnDeath;
-    public DamageEvent OnDamage;
+    public HealthEvent OnDamage;
+    public HealthEvent OnHealthPickup;
 
-    public class DamageEvent : UnityEvent<int>
+    public class HealthEvent : UnityEvent<int>
     {
     }
 
@@ -47,6 +48,7 @@ public class PlayerController : MonoBehaviour
     private bool swapping = false;
     private int swapNextOrPrevious = 0;
     private bool tempInvincibility = false;
+    private int maxHP;
 
     #endregion Fields
 
@@ -65,6 +67,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void PickupHP(int hpToHeal) {
+        if (hp < maxHP && hp > 0) {
+            int hpNeededTillFull = maxHP - hp;
+            int actualHpToHeal = Mathf.Min(hpNeededTillFull, hpToHeal);
+            
+            OnHealthPickup.Invoke(actualHpToHeal);
+            hp += actualHpToHeal;
+        }
+    }
+
     IEnumerator InvincibilityPeriod()
     {
         tempInvincibility = true;
@@ -79,11 +91,14 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        maxHP = hp;
+
         body = GetComponent<Rigidbody2D>();
         weaponsManager = GetComponentInChildren<WeaponsManager>();
         weaponsManager.shootPoint = this.transform;
         currentWeapon = weaponsManager.SwapWeapon(swapNextOrPrevious);
-        OnDamage = new DamageEvent();
+        OnDamage = new HealthEvent();
+        OnHealthPickup = new HealthEvent();
     }
 
     private void Update() {

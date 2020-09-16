@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class WeaponsManager : MonoBehaviour {
@@ -55,7 +57,9 @@ public class WeaponsManager : MonoBehaviour {
     }
 
     public void AddWeapon(Weapon newWeapon) {
-        if (!weapons.Contains(newWeapon)) {
+        Type type = newWeapon.GetType();
+        if (weapons.Count(weapon => weapon.GetType() == type) < 1) {
+            Debug.Log(newWeapon.GetType().Name);
             weapons.Add(newWeapon);
             newWeapon.transform.parent = this.transform;
             newWeapon.transform.localPosition = Vector3.zero;

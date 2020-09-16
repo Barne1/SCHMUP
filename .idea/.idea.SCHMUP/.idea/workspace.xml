@@ -22,24 +22,23 @@
     <list default="true" id="3bb9a7bc-b18d-4ab3-bb55-43820475892a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SCHMUP/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SCHMUP/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SCHMUP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SCHMUP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Placeholder Assets/2D Pixel Spaceships (2 Small Ships + Explosions)/Animation/AnimClips/Ship2Expl.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Placeholder Assets/2D Pixel Spaceships (2 Small Ships + Explosions)/Animation/AnimClips/Ship2Expl.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/EnemyBullet.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/EnemyBullet.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PlayerBullet.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PlayerBullet.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/TriShotPickup.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/TriShotPickup.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WeaponNameDisplay.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WeaponNameDisplay.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/ShootingPatterns/IShootingPattern.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/ShootingPatterns/IShootingPattern.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/ShootingPatterns/SingleShot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/ShootingPatterns/SingleShot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/BigEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/BigEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/HealthDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/HealthDisplay.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/ShootingPatterns/TriShot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/ShootingPatterns/TriShot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Utility/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Utility/Bullet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Utility/ObjectPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Utility/ObjectPool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Utility/PowerupSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Utility/PowerupSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Utility/WeaponPickup.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Utility/WeaponPickup.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Utility/WeaponsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Utility/WeaponsManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponTypes/StandardWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponTypes/StandardWeapon.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponTypes/TriShotWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponTypes/TriShotWeapon.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponTypes/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponTypes/Weapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,9 +49,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/CameraShake.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/ShootingPatterns/TriShot.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ExtensionMethods.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/EnemyAnimationEvent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/BigEnemy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Pickups/HealthPickup.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -73,22 +75,29 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/IShootingPattern.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/SingleShot.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/StandardWeapon.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/WeaponNameDisplay.cs" />
         <option value="$PROJECT_DIR$/Assets/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/EnemyAnimationEvent.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Utility/EnemyObjectPool.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Utility/WeaponsManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Utility/ObjectPool.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/ShootingPatterns/IShootingPattern.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/ShootingPatterns/SingleShot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/ShootingPatterns/TriShot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Utility/Bullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponTypes/TriShotWeapon.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponTypes/StandardWeapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Utility/Bullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/ShootingPatterns/TriShot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Utility/ObjectPool.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/BigEnemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponTypes/StandardWeapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponTypes/TriShotWeapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponTypes/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Utility/WeaponsManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Pickups/HealthPickup.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/HealthDisplay.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Testing/Serialization Test.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Testing/SerializationTest.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Utility/PowerupSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ExtensionMethods.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/CameraShake.cs" />
       </list>
     </option>
   </component>
@@ -101,9 +110,17 @@
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../Shmup Build/SCHMUP.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Hugo.Lindroth\GameProjects\Shmup Build" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -137,6 +154,8 @@
       <workItem from="1599578978004" duration="1640000" />
       <workItem from="1599724419573" duration="10369000" />
       <workItem from="1600074251617" duration="10688000" />
+      <workItem from="1600245085781" duration="7280000" />
+      <workItem from="1600258129837" duration="3565000" />
     </task>
     <servers />
   </component>
@@ -165,10 +184,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="737" y="205" key="RiderGenerateDialog/1920.2.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1599729465809" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1600074758591">
+    <state x="461" y="164" key="SettingsEditor" timestamp="1600245282915">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" key="SettingsEditor/1920.2.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1600074758591" />
+    <state x="461" y="164" key="SettingsEditor/1920.2.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1600245282915" />
     <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1599735721330">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

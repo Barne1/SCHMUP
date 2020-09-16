@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEditor.Experimental;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ObjectPool : MonoBehaviour {
     [SerializeField] private GameObject prefab;

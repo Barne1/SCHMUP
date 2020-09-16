@@ -460,6 +460,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -475,6 +476,21 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947b75dd4e9d3964980923cdca9d7683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initalStrength: 1
+  speed: 100
+  dampingPercent: 0.4
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1035,9 +1051,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 186853356}
   powerUps:
-  - {fileID: 6510725682165811353, guid: 2f6a12cd0538f9b40943e457633c29c0, type: 3}
-  weightPerItem: 00000000
-  chanceOfPowerUp: 20
+  - prefab: {fileID: 6510725682165811353, guid: 2f6a12cd0538f9b40943e457633c29c0, type: 3}
+    weight: 1
+  - prefab: {fileID: 4218393454291951579, guid: 68d56bbb3083ad04494af771673079cd, type: 3}
+    weight: 2
+  chanceOfPowerUp: 33
 --- !u!1 &2029861707
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,6 +1391,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4325120427798779819, guid: 98ede63a05eb58b49a80c2c5371b9981, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325120427798779819, guid: 98ede63a05eb58b49a80c2c5371b9981, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4325120427798779820, guid: 98ede63a05eb58b49a80c2c5371b9981, type: 3}
       propertyPath: scrollAccelerationLevelStart
       value: 0.2
@@ -1432,6 +1458,10 @@ PrefabInstance:
     - target: {fileID: 4325120429551571744, guid: 98ede63a05eb58b49a80c2c5371b9981, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325120429551571745, guid: 98ede63a05eb58b49a80c2c5371b9981, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98ede63a05eb58b49a80c2c5371b9981, type: 3}

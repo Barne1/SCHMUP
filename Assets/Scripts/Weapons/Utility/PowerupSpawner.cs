@@ -5,9 +5,17 @@ using UnityEngine;
 public class PowerupSpawner : MonoBehaviour
 {
     [SerializeField] Transform spawnPoint;
-    [SerializeField] GameObject[] powerUps;
-    [SerializeField] int[] weightPerItem;
+
+    [SerializeField] private PowerUp[] powerUps;
+    /*[SerializeField] GameObject[] powerUps;
+    [SerializeField] int[] weightPerItem;*/
     [SerializeField, Range(0f, 100f)] float chanceOfPowerUp = 50;
+    
+    [System.Serializable]
+    public struct PowerUp {
+        public GameObject prefab;
+        public int weight;
+    }
 
 
     private void Start()
@@ -21,7 +29,7 @@ public class PowerupSpawner : MonoBehaviour
         if(Random.Range(0f, 100f) < chanceOfPowerUp)
         {
             int powerUpSelected = SelectPowerUp();
-            Instantiate(powerUps[powerUpSelected], spawnPoint.position, Quaternion.identity);
+            Instantiate(powerUps[powerUpSelected].prefab, spawnPoint.position, Quaternion.identity);
         }
     }
 
@@ -30,20 +38,20 @@ public class PowerupSpawner : MonoBehaviour
         int totalWeight = 0;
         for (int i = 0; i < powerUps.Length; i++)
         {
-            totalWeight += weightPerItem[i];
+            totalWeight += powerUps[i].weight;
         }
 
         int numberForSelection = Random.Range(0, totalWeight+1);
         int previousWeight = 0;
         for (int i = 0; i < powerUps.Length; i++)
         {
-            if(numberForSelection <= weightPerItem[i] + previousWeight)
+            if(numberForSelection <= powerUps[i].weight + previousWeight)
             {
                 return i;
             }
             else
             {
-                previousWeight += weightPerItem[i];
+                previousWeight += powerUps[i].weight;
             }
         }
 
