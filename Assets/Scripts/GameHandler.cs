@@ -23,7 +23,7 @@ public class GameHandler : MonoBehaviour
     }
 
     #region levelManagement
-    public bool LevelStarted { get; set; } = true;
+    public bool LevelStarted = true;
     bool gameOverStarted = false;
 
     public void StartGameOver()

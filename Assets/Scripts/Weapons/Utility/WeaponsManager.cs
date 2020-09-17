@@ -19,6 +19,7 @@ public class WeaponsManager : MonoBehaviour {
         SINGLESHOT,
         TRISHOT,
         FIVESHOT,
+        EXPLOSION,
         MAX,
     }
     
@@ -32,6 +33,7 @@ public class WeaponsManager : MonoBehaviour {
         shootingPatterns[(int)ShootingPattern.SINGLESHOT] = new SingleShot();
         shootingPatterns[(int)ShootingPattern.TRISHOT] = new TriShot();
         shootingPatterns[(int)ShootingPattern.FIVESHOT] = new FiveShot();
+        shootingPatterns[(int)ShootingPattern.EXPLOSION] = new Explosion();
     }
 
     public IShootingPattern GetShootingPattern(ShootingPattern pattern) {
@@ -59,7 +61,6 @@ public class WeaponsManager : MonoBehaviour {
     public void AddWeapon(Weapon newWeapon) {
         Type type = newWeapon.GetType();
         if (weapons.Count(weapon => weapon.GetType() == type) < 1) {
-            Debug.Log(newWeapon.GetType().Name);
             weapons.Add(newWeapon);
             newWeapon.transform.parent = this.transform;
             newWeapon.transform.localPosition = Vector3.zero;

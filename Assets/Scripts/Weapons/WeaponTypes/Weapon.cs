@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour {
     [SerializeField, Range(0f, 5f)] private float timeBetweenShots = 1f;
-    private bool currentlyShooting = false;
+    protected bool currentlyShooting = false;
     
     [SerializeField] public string name = "NO NAME";
     protected IShootingPattern shootingPattern;
@@ -11,7 +11,7 @@ public abstract class Weapon : MonoBehaviour {
 
     protected Vector2 direction;
 
-    private void Awake() {
+    protected virtual void Awake() {
         direction = playerWeapon ? Vector2.up : Vector2.down;
         timeBetweenShots = playerWeapon ? timeBetweenShots : 0;
     }

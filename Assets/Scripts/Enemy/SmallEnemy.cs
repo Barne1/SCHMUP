@@ -13,7 +13,7 @@ public class SmallEnemy : Enemy
     float swayDirection = 1f;
 
     //Boundries of the playing field, with a little buffer due to sprite size
-    const float maxX = 2.5f;
+    const float maxX = 3f;
 
     public void SetSwayDirection(bool goLeft)
     {
@@ -41,6 +41,8 @@ public class SmallEnemy : Enemy
         //point of destruction should always be a negative value since ship moves downwards
         if(transform.position.y < pointOfDestruction)
         {
+            enemyScoreValue = 0;
+            OnDeath.Invoke(this);
             Destroy(this.gameObject);
         }
 

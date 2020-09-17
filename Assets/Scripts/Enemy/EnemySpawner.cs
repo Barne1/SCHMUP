@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static List<Enemy> enemiesAlive { get; private set; }
+
     [SerializeField] Transform[] spawnPoints;
     bool[] spawnPointAvailable;
     [SerializeField] GameObject[] enemyTypes;
@@ -13,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
     [System.NonSerialized] public static UnityEvent WaveOver;
 
     //There are 3 types of waves, small going left, small going right and big wave.
-    //When a wave is completed, bits are shifted left and the end activated
+    //When a wave is completed, bits are shifted left and the end bit flicked on
     const byte waveDone = 0b_0000_0111;
     byte waveProgress = waveDone;
 
@@ -22,7 +24,10 @@ public class EnemySpawner : MonoBehaviour
 
     private void Awake()
     {
+        
+
         WaveOver = new UnityEvent();
+        enemiesAlive = new List<Enemy>();
 
         spawnPointAvailable = new bool[spawnPoints.Length];
         for (int i = 0; i < spawnPoints.Length; i++)
@@ -34,8 +39,11 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         Enemy.OnDeath.AddListener(ClearSpawnPoint);
+        Enemy.OnDeath.AddListener(RemoveEnemyFromList);
         StartCoroutine(WaveSpawner());
     }
+
+    #region ENEMY_SPAWNING
 
     IEnumerator WaveSpawner()
     {
@@ -43,7 +51,7 @@ public class EnemySpawner : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        while(true)
+        while(GameHandler.instance.LevelStarted)
         {
             wave++;
             waveProgress = (byte)0;
@@ -71,8 +79,11 @@ public class EnemySpawner : MonoBehaviour
             List<int> availableSpawnPointsIndexes = GetOpenSpawnPoints();
             int spawnPointToSpawnIn = availableSpawnPointsIndexes[Random.Range(0, availableSpawnPointsIndexes.Count)];
 
-            GameObject enemy = Instantiate(enemyTypes[1], spawnPoints[spawnPointToSpawnIn].position, Quaternion.identity);
-            enemy.GetComponent<Enemy>().spawnPointOccuption = spawnPointToSpawnIn;
+            GameObject enemyObject = Instantiate(enemyTypes[1], spawnPoints[spawnPointToSpawnIn].position, Quaternion.identity);
+            Enemy enemy = enemyObject.GetComponent<Enemy>();
+            enemy.spawnPointOccuption = spawnPointToSpawnIn;
+            enemiesAlive.Add(enemy);
+
             spawnPointAvailable[spawnPointToSpawnIn] = false;
         }
 
@@ -124,8 +135,10 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < amount; i++)
         {
-            GameObject Enemy = Instantiate(enemyTypes[0], smallEnemySpawn, Quaternion.identity);
-            Enemy.GetComponent<SmallEnemy>().SetSwayDirection(goLeft);
+            GameObject enemyObject = Instantiate(enemyTypes[0], smallEnemySpawn, Quaternion.identity);
+            SmallEnemy enemy = enemyObject.GetComponent<SmallEnemy>();
+            enemy.SetSwayDirection(goLeft);
+            enemiesAlive.Add(enemy);
             yield return new WaitForSeconds(timeBetweenSpawns);
         }
         SignalCompletionOfWave();
@@ -141,5 +154,12 @@ public class EnemySpawner : MonoBehaviour
          * 0b_0000_0001 turns into 0b_0000_0011
          * etc.
          */
+    }
+
+    #endregion
+
+    public void RemoveEnemyFromList(Enemy enemy)
+    {
+        enemiesAlive.Remove(enemy);
     }
 }

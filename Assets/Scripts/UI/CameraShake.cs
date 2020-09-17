@@ -22,7 +22,6 @@ public class CameraShake : MonoBehaviour {
             if (nextPosition.WithinDistance(transform.position, 0.001f)) {
                 strength *= dampingPercent;
                 nextPosition = Random.insideUnitCircle.normalized * strength;
-                Debug.Log(nextPosition);
             }
             else {
                 Vector2 nextTransFormPos = Vector2.Lerp(transform.position, nextPosition, speed * Time.deltaTime);

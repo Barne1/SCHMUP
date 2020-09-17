@@ -11,6 +11,8 @@ public class ObjectPool : MonoBehaviour {
     [SerializeField] public Sprite playerBulletSprite;
     [SerializeField] public Sprite enemyBulletSprite;
 
+    [SerializeField] public Missile missile;
+
     protected virtual void Awake() {
         pool = new GameObject[poolSize];
         for (int i = 0; i < poolSize; i++) {
