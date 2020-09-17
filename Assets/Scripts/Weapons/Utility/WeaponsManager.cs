@@ -11,7 +11,6 @@ public class WeaponsManager : MonoBehaviour {
     [SerializeField] private WeaponNameDisplay weaponText;
     
     public Transform shootPoint;
-    public ObjectPool bulletPool;
     
     private int counter = 0;
     private IShootingPattern[] shootingPatterns;

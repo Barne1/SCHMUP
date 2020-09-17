@@ -194,7 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenShots: 0.1
   name: Starter Weapon
-  enemyWeapon: 0
+  playerWeapon: 1
   bulletSpeed: 500
   damage: 1
 --- !u!1 &3225901768281050810
@@ -366,7 +366,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   movementSpeed: 500
-  hp: 3
+  hp: 7
+  invincibilityTimeOnDamage: 0.3
   currentWeapon: {fileID: 1724475206}
   weaponsManager: {fileID: 361513031}
   shield: {fileID: 8539145497801950286}
