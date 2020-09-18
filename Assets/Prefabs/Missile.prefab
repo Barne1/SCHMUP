@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1ec31db1e79bf946be0067f18a7f89a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionClip: {fileID: 8300000, guid: ae4f449ed16ae8d478d291bfd46d627c, type: 3}
   bulletDamage: 1
   bulletSpeed: 300
   initialOrientationSlowDown: 0.3

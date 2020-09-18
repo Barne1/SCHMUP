@@ -8,6 +8,7 @@
       <e p="Assets" t="Include">
         <e p="EnemyAnimationEvent.cs" t="Include" />
         <e p="Scripts" t="Include">
+          <e p="AudioPlayer.cs" t="Include" />
           <e p="Enemy" t="Include">
             <e p="BigEnemy.cs" t="Include" />
             <e p="Enemy.cs" t="Include" />
@@ -36,14 +37,18 @@
             <e p="WeaponNameDisplay.cs" t="Include" />
           </e>
           <e p="Weapons" t="Include">
+            <e p="Projectiles" t="Include">
+              <e p="bullet.cs" t="Include" />
+              <e p="Missile.cs" t="Include" />
+            </e>
             <e p="ShootingPatterns" t="Include">
+              <e p="Explosion.cs" t="Include" />
               <e p="FiveShot.cs" t="Include" />
               <e p="IShootingPattern.cs" t="Include" />
               <e p="SingleShot.cs" t="Include" />
               <e p="TriShot.cs" t="Include" />
             </e>
             <e p="Utility" t="Include">
-              <e p="bullet.cs" t="Include" />
               <e p="ObjectPool.cs" t="Include" />
               <e p="PowerupSpawner.cs" t="Include" />
               <e p="WeaponsManager.cs" t="Include" />
@@ -51,6 +56,7 @@
             <e p="WeaponTypes" t="Include">
               <e p="EnemyAimTowardsPlayer.cs" t="Include" />
               <e p="FiveShotWeapon.cs" t="Include" />
+              <e p="MissileWeapon.cs" t="Include" />
               <e p="StandardWeapon.cs" t="Include" />
               <e p="TriShotWeapon.cs" t="Include" />
               <e p="Weapon.cs" t="Include" />

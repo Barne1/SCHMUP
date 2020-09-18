@@ -10,7 +10,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] Transform[] spawnPoints;
     bool[] spawnPointAvailable;
     [SerializeField] GameObject[] enemyTypes;
-    Vector3 smallEnemySpawn = new Vector3(0, 6, 0);
 
     [System.NonSerialized] public static UnityEvent WaveOver;
 
@@ -24,8 +23,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void Awake()
     {
-        
-
         WaveOver = new UnityEvent();
         enemiesAlive = new List<Enemy>();
 
@@ -125,17 +122,17 @@ public class EnemySpawner : MonoBehaviour
                 StartCoroutine(SmallEnemySpawnWave(amount, false));
                 break;
             case 2:
-                StartCoroutine(SmallEnemySpawnWave(amount, true));
-                StartCoroutine(SmallEnemySpawnWave(amount, false));
+                StartCoroutine(SmallEnemySpawnWave(amount/2, true));
+                StartCoroutine(SmallEnemySpawnWave(amount/2, false));
                 break;
         }
     }
 
-    IEnumerator SmallEnemySpawnWave(int amount, bool goLeft)
-    {
+    IEnumerator SmallEnemySpawnWave(int amount, bool goLeft) {
+        Transform spawnPoint = goLeft ? spawnPoints[spawnPoints.Length-1] : spawnPoints[0];
         for (int i = 0; i < amount; i++)
         {
-            GameObject enemyObject = Instantiate(enemyTypes[0], smallEnemySpawn, Quaternion.identity);
+            GameObject enemyObject = Instantiate(enemyTypes[0], spawnPoint.position, Quaternion.identity);
             SmallEnemy enemy = enemyObject.GetComponent<SmallEnemy>();
             enemy.SetSwayDirection(goLeft);
             enemiesAlive.Add(enemy);
